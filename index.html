@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Elfan Dwi Saputra</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            900: '#172554',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tight text-primary-700 dark:text-primary-400">
+                ELFAN<span class="text-slate-700 dark:text-slate-200">.DS</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#tentang" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Tentang</a>
+                <a href="#pendidikan" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Pendidikan</a>
+                <a href="#keahlian" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Keahlian</a>
+                <a href="#proyek" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Pengalaman & Proyek</a>
+                <a href="#fokus" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Fokus Karir</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <!-- Dark Mode Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 focus:outline-none transition-colors" aria-label="Ubah Tema">
+                    <i id="theme-toggle-dark-icon" class="fas font-solid fa-moon hidden text-lg"></i>
+                    <i id="theme-toggle-light-icon" class="fas font-solid fa-sun hidden text-lg"></i>
+                </button>
+
+                <a href="#kontak" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 transition-all shadow-sm">
+                    Hubungi Saya
+                </a>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#tentang" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Tentang</a>
+            <a href="#pendidikan" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Pendidikan</a>
+            <a href="#keahlian" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Keahlian</a>
+            <a href="#proyek" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Pengalaman & Proyek</a>
+            <a href="#fokus" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Fokus Karir</a>
+            <a href="#kontak" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-primary-600 dark:text-primary-400 font-semibold">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="tentang" class="py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                <div class="md:col-span-2 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-800 text-xs sm:text-sm font-medium">
+                        <span class="flex h-2 w-2 rounded-full bg-primary-600 animate-pulse"></span>
+                        <span>Mahasiswa Teknik Informatika | Linux & Web Admin</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                        Halo, Saya <span class="text-primary-600 dark:text-primary-400">Elfan Dwi Saputra</span>
+                    </h1>
+                    
+                    <p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+                        Mahasiswa S1 Teknik Informatika di Universitas Sains Al-Qur'an dengan fokus ketertarikan pada <strong class="text-slate-900 dark:text-white">Administrasi Sistem Linux</strong>, <strong class="text-slate-900 dark:text-white">Pengelolaan Website</strong>, dan <strong class="text-slate-900 dark:text-white">IT Operations</strong>. Memiliki pengalaman praktis dalam pemeliharaan konten website, pengelolaan dashboard administrasi web, serta pengembangan proyek perangkat lunak mandiri.
+                    </p>
+
+                    <!-- Contact Badge Info -->
+                    <div class="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-300 pt-2">
+                        <div class="flex items-center gap-2 bg-white dark:bg-slate-800 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <i class="fas fa-location-dot text-primary-600 dark:text-primary-400"></i>
+                            <span>Purbalingga, Jawa Tengah</span>
+                        </div>
+                        <a href="tel:+6283104157055" class="flex items-center gap-2 bg-white dark:bg-slate-800 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary-500 transition-colors">
+                            <i class="fas fa-phone text-primary-600 dark:text-primary-400"></i>
+                            <span>+62 831-0415-7055</span>
+                        </a>
+                        <a href="mailto:elfansaputra2@gmail.com" class="flex items-center gap-2 bg-white dark:bg-slate-800 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary-500 transition-colors">
+                            <i class="fas fa-envelope text-primary-600 dark:text-primary-400"></i>
+                            <span>elfansaputra2@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/eLgorythm/Stellar" target="_blank" class="flex items-center gap-2 bg-white dark:bg-slate-800 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary-500 transition-colors">
+                            <i class="fab fa-github text-primary-600 dark:text-primary-400"></i>
+                            <span>github.com/eLgorythm/Stellar</span>
+                        </a>
+                    </div>
+
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="#kontak" class="px-6 py-3 rounded-lg text-white bg-primary-600 hover:bg-primary-700 font-medium transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                            <i class="fas fa-paper-plane"></i> Hubungi Kontak
+                        </a>
+                        <a href="https://github.com/eLgorythm/Stellar" target="_blank" class="px-6 py-3 rounded-lg text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 font-medium transition-all flex items-center gap-2">
+                            <i class="fab fa-github"></i> Repositori GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Avatar / Illustration Box -->
+                <div class="flex justify-center">
+                    <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl bg-gradient-to-tr from-primary-600 to-primary-400 p-1 shadow-xl">
+                        <div class="w-full h-full bg-white dark:bg-slate-800 rounded-[15px] flex flex-col items-center justify-center p-6 text-center">
+                            <div class="w-24 h-24 rounded-full bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400 text-4xl mb-4 border-2 border-primary-500">
+                                <i class="fas fa-user-gear"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Elfan Dwi Saputra</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Linux & Web Administrator</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 text-[10px] bg-slate-100 dark:bg-slate-700 rounded text-slate-600 dark:text-slate-300">Linux CLI</span>
+                                <span class="px-2 py-1 text-[10px] bg-slate-100 dark:bg-slate-700 rounded text-slate-600 dark:text-slate-300">Web Admin</span>
+                                <span class="px-2 py-1 text-[10px] bg-slate-100 dark:bg-slate-700 rounded text-slate-600 dark:text-slate-300">CMS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pendidikan Section -->
+        <section id="pendidikan" class="py-12 bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-8">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                            <i class="fas fa-graduation-cap text-primary-600 dark:text-primary-400"></i> Pendidikan
+                        </h2>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Latar belakang akademis resmi</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 relative overflow-hidden shadow-sm">
+                    <div class="absolute top-0 right-0 w-2 h-full bg-primary-600"></div>
+                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2 mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">S1 Teknik Informatika</h3>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium">Universitas Sains Al-Qur'an</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Fakultas: Teknik & Ilmu Komputer</p>
+                        </div>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 text-primary-800 dark:bg-primary-900/60 dark:text-primary-200 w-fit">
+                            2022 – Sekarang
+                        </span>
+                    </div>
+                    
+                    <div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+                        <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Fokus Studi:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-md text-slate-700 dark:text-slate-300">Pemrograman</span>
+                            <span class="px-3 py-1 text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-md text-slate-700 dark:text-slate-300">Jaringan Komputer</span>
+                            <span class="px-3 py-1 text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-md text-slate-700 dark:text-slate-300">Sistem Operasi (Linux)</span>
+                            <span class="px-3 py-1 text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-md text-slate-700 dark:text-slate-300">Pemrograman Web</span>
+                            <span class="px-3 py-1 text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-md text-slate-700 dark:text-slate-300">Basis Data</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keahlian & Skills Section -->
+        <section id="keahlian" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-3">
+                <i class="fas fa-laptop-code text-primary-600 dark:text-primary-400"></i> Keahlian & Kompetensi
+            </h2>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-10">Ringkasan keahlian teknis, perangkat lunak, dan soft skills</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Keahlian Teknis -->
+                <div class="md:col-span-2 space-y-6">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                        <i class="fas fa-terminal text-primary-600 dark:text-primary-400"></i> Keahlian Teknis
+                    </h3>
+
+                    <!-- OS & Server -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <h4 class="text-xs font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">OS & Server</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fab fa-linux text-slate-700 dark:text-slate-300"></i> Linux CLI
+                            </span>
+                            <span class="px-3 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fab fa-windows text-blue-500"></i> Windows OS
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Web & Version Control -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <h4 class="text-xs font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">Web & Version Control</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fab fa-git-alt text-orange-600"></i> Git
+                            </span>
+                            <span class="px-3 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fab fa-github"></i> GitHub
+                            </span>
+                            <span class="px-3 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fab fa-wordpress text-blue-600"></i> WordPress
+                            </span>
+                            <span class="px-3 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fab fa-html5 text-orange-500"></i> HTML5/CSS3
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Produktivitas & Data -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <h4 class="text-xs font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">Produktivitas & Data</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fas fa-file-excel text-emerald-600"></i> MS Excel
+                            </span>
+                            <span class="px-3 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fas fa-file-word text-blue-600"></i> MS Word
+                            </span>
+                            <span class="px-3 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fas fa-file-code text-indigo-500"></i> Dokumentasi Teknis
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills & Bahasa -->
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2 mb-4">
+                            <i class="fas fa-users text-primary-600 dark:text-primary-400"></i> Soft Skills
+                        </h3>
+                        <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
+                                <i class="fas fa-check-circle text-primary-600"></i> Berpikir Logis & Analitis
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
+                                <i class="fas fa-check-circle text-primary-600"></i> Problem Solving
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
+                                <i class="fas fa-check-circle text-primary-600"></i> Kerja Sama Tim
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
+                                <i class="fas fa-check-circle text-primary-600"></i> Komunikasi Teknis
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
+                                <i class="fas fa-check-circle text-primary-600"></i> Manajemen Waktu
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2 mb-4">
+                            <i class="fas fa-language text-primary-600 dark:text-primary-400"></i> Bahasa
+                        </h3>
+                        <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span class="text-slate-800 dark:text-slate-200">Bahasa Indonesia</span>
+                                    <span class="text-xs text-primary-600 dark:text-primary-400">Penutur Asli</span>
+                                </div>
+                                <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-primary-600 h-full w-full"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span class="text-slate-800 dark:text-slate-200">Bahasa Inggris</span>
+                                    <span class="text-xs text-slate-500">Pasif / Teknis</span>
+                                </div>
+                                <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-primary-500 h-full w-2/3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pengalaman & Proyek Teknis -->
+        <section id="proyek" class="py-16 bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-3">
+                    <i class="fas fa-briefcase text-primary-600 dark:text-primary-400"></i> Pengalaman & Proyek Teknis
+                </h2>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-10">Proyek mandiri dan pengalaman teknis yang telah dikerjakan</p>
+
+                <div class="space-y-8">
+                    <!-- Proyek Stellar -->
+                    <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Pengembang Proyek "Stellar"</h3>
+                                    <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">Proyek Mandiri</span>
+                                </div>
+                                <a href="https://github.com/eLgorythm/Stellar" target="_blank" class="text-xs text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1 mt-1">
+                                    <i class="fab fa-github"></i> github.com/eLgorythm/Stellar
+                                </a>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+                            <li>Mengembangkan dan mengelola repositori kode <strong>Stellar</strong> menggunakan sistem kontrol versi <strong>Git</strong> dan platform <strong>GitHub</strong>.</li>
+                            <li>Menyusun struktur direktori proyek secara teratur serta menulis dokumentasi (<em>README</em>) teknis untuk kemudahan navigasi dan pengembangan.</li>
+                            <li>Melakukan pemeliharaan kode (<em>code maintenance</em>), pengujian fungsi dasar, serta pembaruan berkala pada repositori.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Administrator Website -->
+                    <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Administrator & Pengelola Website</h3>
+                                    <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300">Proyek Mandiri / Kampus</span>
+                                </div>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Manajerial Konten & Infrastruktur Web</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+                            <li>Mengelola dan memperbarui informasi serta materi konten pada platform website secara berkala untuk memastikan ketersediaan data yang akurat.</li>
+                            <li>Melakukan <em>monitoring</em> performa dan keamanan dasar website guna meminimalkan potensi kendala teknis atau <em>downtime</em>.</li>
+                            <li>Mengoperasikan dashboard administrasi web (Content Management System) serta mengelola struktur direktori data/konten secara terorganisir.</li>
+                            <li>Menyiapkan dokumentasi teknis dan pembakupan (<em>backup</em>) data rutin untuk menjaga integritas serta keamanan informasi website.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Minat atau Fokus Karir -->
+        <section id="fokus" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-3">
+                <i class="fas fa-bullseye text-primary-600 dark:text-primary-400"></i> Minat atau Fokus Karir
+            </h2>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-10">Bidang spesialisasi profesional yang saya tekuni</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Linux System Administration -->
+                <div class="p-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary-500 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400 text-xl mb-4">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Linux System Administration</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                        Pengelolaan server berbasis CLI, hak akses, dan manajemen paket sistem operasi Linux.
+                    </p>
+                </div>
+
+                <!-- Web Administration & Maintenance -->
+                <div class="p-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary-500 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400 text-xl mb-4">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Web Administration & Maintenance</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                        Administrasi website (Admin Web), pengelolaan CMS, monitoring server web, serta backup data berkala.
+                    </p>
+                </div>
+
+                <!-- IT Support & Infrastructure -->
+                <div class="p-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary-500 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400 text-xl mb-4">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">IT Support & Infrastructure</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                        Troubleshooting jaringan dasar, pemeliharaan perangkat lunak, dan dokumentasi sistem teknis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontak Section -->
+        <section id="kontak" class="py-16 bg-white dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Hubungi Saya</h2>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Tertarik untuk bekerja sama atau berdiskusi? Silakan tinggalkan pesan.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Info Kontak -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">Informasi Kontak</h3>
+                        
+                        <div class="flex items-start gap-3">
+                            <div class="p-2.5 rounded-lg bg-primary-50 dark:bg-slate-800 text-primary-600 dark:text-primary-400 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-slate-500 dark:text-slate-400 font-medium">Lokasi</h4>
+                                <p class="text-sm font-medium text-slate-800 dark:text-slate-200">Purbalingga, Jawa Tengah</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="p-2.5 rounded-lg bg-primary-50 dark:bg-slate-800 text-primary-600 dark:text-primary-400 mt-1">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-slate-500 dark:text-slate-400 font-medium">Telepon / WhatsApp</h4>
+                                <a href="https://wa.me/6283104157055" target="_blank" class="text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-primary-600 dark:hover:text-primary-400">
+                                    +62 831-0415-7055
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="p-2.5 rounded-lg bg-primary-50 dark:bg-slate-800 text-primary-600 dark:text-primary-400 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-slate-500 dark:text-slate-400 font-medium">Email</h4>
+                                <a href="mailto:elfansaputra2@gmail.com" class="text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-primary-600 dark:hover:text-primary-400">
+                                    elfansaputra2@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="p-2.5 rounded-lg bg-primary-50 dark:bg-slate-800 text-primary-600 dark:text-primary-400 mt-1">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-slate-500 dark:text-slate-400 font-medium">GitHub</h4>
+                                <a href="https://github.com/eLgorythm/Stellar" target="_blank" class="text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-primary-600 dark:hover:text-primary-400">
+                                    github.com/eLgorythm/Stellar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Pesan -->
+                    <form id="contact-form" class="space-y-4 bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <div>
+                            <label for="name" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Nama Lengkap</label>
+                            <input type="text" id="name" required class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:outline-none" placeholder="Masukkan nama Anda">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
+                            <input type="email" id="email" required class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:outline-none" placeholder="nama@email.com">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Pesan</label>
+                            <textarea id="message" rows="3" required class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:outline-none" placeholder="Tuliskan pesan Anda di sini..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-2.5 px-4 text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 transition-colors shadow">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 dark:text-slate-400">
+            <p>&copy; 2026 Elfan Dwi Saputra. All Rights Reserved.</p>
+            <p class="mt-1">Dibuat untuk Portofolio Teknik Informatika & Administrasi Sistem Web.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Theme Toggle Functionality
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submission Notification
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`Terima kasih ${name}, pesan Anda berhasil terkirim!`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
