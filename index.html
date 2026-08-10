@@ -464,26 +464,47 @@
                     </div>
 
                     <!-- Form Pesan -->
-                    <form id="contact-form" class="space-y-4 bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                        <div>
-                            <label for="name" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Nama Lengkap</label>
-                            <input type="text" id="name" required class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:outline-none" placeholder="Masukkan nama Anda">
+                    <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm relative">
+                        <!-- Custom Success Notification Banner -->
+                        <div id="form-success-message" class="hidden mb-4 p-4 rounded-lg bg-emerald-50 dark:bg-emerald-900/40 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 text-sm flex items-start gap-3">
+                            <i class="fas fa-circle-check text-emerald-500 text-lg mt-0.5"></i>
+                            <div>
+                                <p class="font-semibold" id="success-title">Pesan Terkirim!</p>
+                                <p class="text-xs mt-0.5 text-emerald-700 dark:text-emerald-300" id="success-desc">Terima kasih, pesan Anda telah diproses. Kami akan segera mengontak Anda kembali.</p>
+                            </div>
                         </div>
 
-                        <div>
-                            <label for="email" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
-                            <input type="email" id="email" required class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:outline-none" placeholder="nama@email.com">
-                        </div>
+                        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                            <!-- Access Key Web3Forms -->
+                            <input type="hidden" name="access_key" value="a4fe1204-e683-4a1f-80ba-f326e21d8b65">
+                            <input type="hidden" name="subject" value="Pesan Baru dari Portofolio Website">
+                            <input type="hidden" name="from_name" value="Portofolio Elfan">
 
-                        <div>
-                            <label for="message" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Pesan</label>
-                            <textarea id="message" rows="3" required class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:outline-none" placeholder="Tuliskan pesan Anda di sini..."></textarea>
-                        </div>
+                            <div>
+                                <label for="name" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Nama Lengkap</label>
+                                <input type="text" name="name" id="name" required class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:outline-none" placeholder="Masukkan nama Anda">
+                            </div>
 
-                        <button type="submit" class="w-full py-2.5 px-4 text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 transition-colors shadow">
-                            Kirim Pesan
-                        </button>
-                    </form>
+                            <div>
+                                <label for="email" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
+                                <input type="email" name="email" id="email" required class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:outline-none" placeholder="nama@email.com">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Pesan</label>
+                                <textarea name="message" id="message" rows="3" required class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:outline-none" placeholder="Tuliskan pesan Anda di sini..."></textarea>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                                <button type="submit" class="w-full py-2.5 px-4 text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 transition-colors shadow flex items-center justify-center gap-2">
+                                    <i class="fas fa-paper-plane text-xs"></i> Kirim Email
+                                </button>
+                                <button type="button" id="btn-whatsapp" class="w-full py-2.5 px-4 text-sm font-medium rounded-lg text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow flex items-center justify-center gap-2">
+                                    <i class="fab fa-whatsapp text-sm"></i> Kirim via WA
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -550,12 +571,72 @@
             });
         });
 
-        // Form Submission Notification
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        // Interactive Form Submission Handling (Custom In-Page Feedback)
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('form-success-message');
+        const successTitle = document.getElementById('success-title');
+        const successDesc = document.getElementById('success-desc');
+        const btnWhatsApp = document.getElementById('btn-whatsapp');
+
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
-            alert(`Terima kasih ${name}, pesan Anda berhasil terkirim!`);
-            this.reset();
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+
+            // Indikator proses pengiriman
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Mengirim...';
+
+            const formData = new FormData(this);
+
+            // Pengiriman via AJAX ke Web3Forms
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    successTitle.textContent = `Pesan Terkirim! Terima kasih, ${name}.`;
+                    successDesc.textContent = `Pesan Anda telah berhasil terkirim langsung ke email elfansaputra2@gmail.com. Kami akan segera membalasnya.`;
+                    successMessage.classList.remove('hidden');
+                    contactForm.reset();
+                } else {
+                    successTitle.textContent = 'Gagal Mengirim';
+                    successDesc.textContent = json.message || 'Terjadi kendala saat mengirim pesan. Silakan coba lagi atau hubungi via WhatsApp.';
+                    successMessage.classList.remove('hidden');
+                }
+            })
+            .catch(error => {
+                successTitle.textContent = 'Terjadi Kesalahan';
+                successDesc.textContent = 'Tidak dapat terhubung ke server. Silakan coba lagi atau gunakan tombol WhatsApp.';
+                successMessage.classList.remove('hidden');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 8000);
+            });
+        });
+
+        // Direct WhatsApp messaging trigger
+        btnWhatsApp.addEventListener('click', function() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !message) {
+                successTitle.textContent = 'Lengkapi Formulir';
+                successDesc.textContent = 'Harap isi Nama dan Pesan terlebih dahulu sebelum mengirim via WhatsApp.';
+                successMessage.classList.remove('hidden');
+                return;
+            }
+
+            const text = `Halo Elfan, nama saya *${name}* (${email || 'Tanpa Email'}).%0A%0A*Pesan:*%0A${encodeURIComponent(message)}`;
+            window.open(`https://wa.me/6283104157055?text=${text}`, '_blank');
         });
     </script>
 </body>
